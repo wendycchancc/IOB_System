@@ -19,14 +19,10 @@ class CreateOrderTable extends Migration
             $table->integer('adjustments_total');
             $table->integer('total');
             $table->string('order_state');
-            $table->unsignedBigInteger('orderinformationId');
-            $table->foreign('orderinformationId')->references('orderinformationId')->on('orderinformation');
             $table->unsignedBigInteger('ownerId');
             $table->foreign('ownerId')->references('id')->on('users');
-            $table->unsignedBigInteger('shipmentsId');
-            $table->foreign('shipmentsId')->references('shipmentsId')->on('shipments');
-            $table->unsignedBigInteger('paymentsId');
-            $table->foreign('paymentsId')->references('paymentsId')->on('payments');
+            $table->unsignedBigInteger('updatedId');
+            $table->foreign('updatedId')->references('id')->on('users');
             $table->date('createdate', 0);
             $table->date('managementdate',0);
         });

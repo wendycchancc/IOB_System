@@ -6,8 +6,9 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>name</th>
-            <th>role</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Updated By</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
             <td><a href="{{ route('user.show', $value->id)}}">{{ $value->id }}</a></td>
             <td>{{ $value->name }}</td>
             <td>{{ $value->role }}</td>
+            <td>{{ $value->updatedId }}</td>
             <td>
                 <a class="btn btn-small btn-success" href="{{ URL::to('user/' . $value->id) }}">Show this User</a>
             </td>

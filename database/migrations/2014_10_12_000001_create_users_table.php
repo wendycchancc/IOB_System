@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('country', 50);
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('updatedId')->nullable();
+            $table->foreign('updatedId')->references('id')->on('users');
         });
 }
 

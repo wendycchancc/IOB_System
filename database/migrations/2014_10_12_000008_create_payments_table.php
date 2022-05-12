@@ -20,6 +20,10 @@ class CreatePaymentsTable extends Migration
             $table->text('payment_details')->nullable();
             $table->date('createdate', 0);
             $table->date('paymentdate', 0);
+            $table->unsignedBigInteger('orderId');
+            $table->foreign('orderId')->references('orderId')->on('order');
+            $table->unsignedBigInteger('updatedId');
+            $table->foreign('updatedId')->references('id')->on('users');
         });
     }
 

@@ -20,6 +20,10 @@ class CreateShipmentsTable extends Migration
             $table->string('tracking_number')->nullable();
             $table->date('createdate', 0);
             $table->date('updatedate', 0);
+            $table->unsignedBigInteger('orderId');
+            $table->foreign('orderId')->references('orderId')->on('order');
+            $table->unsignedBigInteger('updatedId');
+            $table->foreign('updatedId')->references('id')->on('users');
         });
     }
 

@@ -15,13 +15,14 @@ class CreateOrderinformationTable extends Migration
     {
         Schema::create('orderinformation', function (Blueprint $table) {
             $table->bigIncrements('orderinformationId');
-            $table->unsignedBigInteger('orderId');
             $table->string('address', 255);
             $table->string('name', 100);
             $table->integer('phone');
             $table->integer('fax')->nullable();
             $table->integer('telex')->nullable();
             $table->date('createdate', 0);
+            $table->unsignedBigInteger('orderId');
+            $table->foreign('orderId')->references('orderId')->on('order');
         });
     }
 

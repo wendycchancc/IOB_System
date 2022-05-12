@@ -52,6 +52,11 @@ class userController extends Controller
 
     public function update(Request $request, $id)
     {
+        $id = Auth::id();
+        if ($id == null){
+            return Redirect::to('user/');
+        }
+        
         $input = $request->all();
         
         $rules = array(
@@ -89,6 +94,7 @@ class userController extends Controller
             $users->address = $request->address;
             $users->postcode = $request->postcode;
             $users->country = $request->country;
+            $users ->updatedId = $id;
             $users->save();
             return redirect('user')->with('success','Successfully updated User Information !');
         }
